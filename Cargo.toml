@@ -1,0 +1,25 @@
+[workspace]
+
+members = [
+  "c01_hello_world",
+  "c02_variables_and_mutability",
+  "c03_data_types",
+  "c04_function",
+  "c05_control_flow",
+  "c06_ownership",
+  "c07_reference_and_borrow",
+  "c08_slice",
+  "c09_struct",
+  "c10_enum",
+  "c11_match",
+  "c12_if_let",
+  "c13_crate",
+  "c14_collections",
+  "c15_errors",
+  "c16_generics",
+  "c17_trait",
+  "c18_lifetime",
+  "c19_testing",
+  "c20_closure",
+  "c21_iterators",
+]
