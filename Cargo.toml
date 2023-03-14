@@ -22,4 +22,7 @@ members = [
   "c19_testing",
   "c20_closure",
   "c21_iterators",
+  "c22_smart_points",
+  "c23_threads",
+  "c24_oop",
 ]

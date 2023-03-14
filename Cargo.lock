@@ -85,3 +85,15 @@ version = "0.1.0"
 [[package]]
 name = "c21_iterators"
 version = "0.1.0"
+
+[[package]]
+name = "c22_smart_points"
+version = "0.1.0"
+
+[[package]]
+name = "c23_threads"
+version = "0.1.0"
+
+[[package]]
+name = "c24_oop"
+version = "0.1.0"
