@@ -4,7 +4,6 @@ fn main() {
     struct_generic_demo();
     largest_demo();
     //结构体的生命周期注解
-    struct_lifetime_demo();
 }
 
 fn largest_demo() {

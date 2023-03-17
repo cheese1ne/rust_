@@ -25,4 +25,6 @@ members = [
   "c22_smart_points",
   "c23_threads",
   "c24_oop",
+  "c25_patterns",
+  "c26_advanced_features",
 ]
