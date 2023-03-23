@@ -27,4 +27,5 @@ members = [
   "c24_oop",
   "c25_patterns",
   "c26_advanced_features",
+  "c27_web_server"
 ]

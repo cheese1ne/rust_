@@ -31,5 +31,5 @@ fn main() {
     // 宏
     macro_::my_vec_macro_demo();
     macro_::my_print_macro_demo();
-    macro_::proc_macro_derive_demo();
+    // macro_::proc_macro_derive_demo();
 }

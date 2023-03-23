@@ -1,4 +1,4 @@
-use proc_macro::TokenStream;
+// use proc_macro::TokenStream;
 use quote::quote;
 use syn::{parse_macro_input, Data, DeriveInput, Ident};
 #[macro_export]
@@ -35,64 +35,64 @@ pub fn my_print_macro_demo() {
 }
 
 // 过程宏 自定义宏
-#[proc_macro_derive(HasProperty, attributes(has))]
-pub fn derive_has_property(input: TokenStream) -> TokenStream {
-    // 将输入解析为 AST
-    let input = parse_macro_input!(input as DeriveInput);
+// #[proc_macro_derive(HasProperty, attributes(has))]
+// pub fn derive_has_property(input: TokenStream) -> TokenStream {
+//     // 将输入解析为 AST
+//     let input = parse_macro_input!(input as DeriveInput);
 
-    // 提取结构体的名称和字段
-    let name = input.ident;
-    let fields = match input.data {
-        Data::Struct(data) => data.fields,
-        _ => panic!("Can only derive HasProperty on structs."),
-    };
+//     // 提取结构体的名称和字段
+//     let name = input.ident;
+//     let fields = match input.data {
+//         Data::Struct(data) => data.fields,
+//         _ => panic!("Can only derive HasProperty on structs."),
+//     };
 
-    // 生成一个用于检查结构体字段的闭包
-    let check_fields = fields.iter().map(|field| {
-        let name = field.ident.as_ref().unwrap();
-        let has_attr = field.attrs.iter().any(|attr| attr.path.is_ident("has"));
-        quote! {
-            if !#has_attr {
-                return false;
-            }
-        }
-    });
+//     // 生成一个用于检查结构体字段的闭包
+//     let check_fields = fields.iter().map(|field| {
+//         let name = field.ident.as_ref().unwrap();
+//         let has_attr = field.attrs.iter().any(|attr| attr.path.is_ident("has"));
+//         quote! {
+//             if !#has_attr {
+//                 return false;
+//             }
+//         }
+//     });
 
-    // 生成代码以实现 HasProperty trait
-    let output = quote! {
-        impl HasProperty for #name {
-            fn has_property(&self) -> bool {
-                #(#check_fields)*
-                true
-            }
-        }
-    };
+//     // 生成代码以实现 HasProperty trait
+//     let output = quote! {
+//         impl HasProperty for #name {
+//             fn has_property(&self) -> bool {
+//                 #(#check_fields)*
+//                 true
+//             }
+//         }
+//     };
 
-    // 返回生成的代码
-    TokenStream::from(output)
-}
+//     // 返回生成的代码
+//     TokenStream::from(output)
+// }
 
-// 定义 HasProperty trait
-pub trait HasProperty {
-    fn has_property(&self) -> bool;
-}
+// // 定义 HasProperty trait
+// pub trait HasProperty {
+//     fn has_property(&self) -> bool;
+// }
 
-// 定义一个结构体和相应的属性
-#[derive(HasProperty)]
-struct Person {
-    #[has]
-    name: String,
-    // #[has]
-    age: u32,
-}
+// // 定义一个结构体和相应的属性
+// #[derive(HasProperty)]
+// struct Person {
+//     #[has]
+//     name: String,
+//     // #[has]
+//     age: u32,
+// }
 
-pub fn proc_macro_derive_demo() {
-    let person = Person {
-        name: "Alice".to_string(),
-        age: 25,
-    };
-    assert!(person.has_property());
-}
+// pub fn proc_macro_derive_demo() {
+//     let person = Person {
+//         name: "Alice".to_string(),
+//         age: 25,
+//     };
+//     assert!(person.has_property());
+// }
 
 /*
 
@@ -102,7 +102,5 @@ pub fn proc_macro_derive_demo() {
             自定义宏: 自定义派生宏可以通过#[derive]属性来使用，它们可以用来自动为结构体或枚举类型实现trait，例如HasProperty
             类属性宏: 创建新的属性，例如web应用框架 #[route(GET, "/")]
             类函数宏: 接受未知数量参数的宏，如 sql!(SELECT * FROM foo WHERE id = 1);
-
-
 
 */
